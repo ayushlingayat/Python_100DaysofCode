@@ -43,5 +43,4 @@ class Solution:
         return merged
 
 # TC - O(n log n)
-# SC -  O(log n) for sort recursion stack.
-# Sorting in-place or extra space depends on language implementation typically
+# SC -  O(n) 
