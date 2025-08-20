@@ -50,30 +50,3 @@ class Solution:
         dfs(0, [], 0)
         return res
 
-# TC - O(2^t) where t = target/min(candidates)
-# SC - O(target)
-
-
-#Optimal Approach
-
-class Solution:
-    def combinationSum(self, candidates, target):
-        res = []
-        candidates.sort()  # sorting helps prune faster
-
-        def backtrack(start, curr, total):
-            if total == target:
-                res.append(curr[:])
-                return
-            for i in range(start, len(candidates)):
-                if total + candidates[i] > target:
-                    break
-                curr.append(candidates[i])
-                backtrack(i, curr, total + candidates[i])  # not i+1 (since we can reuse)
-                curr.pop()
-
-        backtrack(0, [], 0)
-        return res
-
-# TC - O(N^(target/min)) (exponential but reduced due to pruning)
-# SC - O(target)
